@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 395532054}
   - component: {fileID: 395532053}
   - component: {fileID: 395532052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 780979800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 941026836}
   - component: {fileID: 941026835}
   - component: {fileID: 941026834}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: West Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 1141590008}
   - component: {fileID: 1141590007}
   - component: {fileID: 1141590006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: North Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 1141977182}
   - component: {fileID: 1141977181}
   - component: {fileID: 1141977180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: East Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1120,7 @@ GameObject:
   - component: {fileID: 1541076596}
   - component: {fileID: 1541076595}
   - component: {fileID: 1541076594}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: South Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1490,7 +1490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6635be09eed3e5e46b1cd6d3ff3953f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  jumpForce: 7
+  col: {fileID: 1730062862}
   score: 0
   scoreText: {fileID: 655752431}
 --- !u!1001 &1866480197

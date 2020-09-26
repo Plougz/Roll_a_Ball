@@ -6,11 +6,15 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0;
+    public float speed = 5;
 
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+
+    public LayerMask groundLayers;
+    public float jumpForce = 7;
+    public SphereCollider col;
 
     public int score = 0;
 
@@ -20,6 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<SphereCollider>();
     }
     void OnMove(InputValue movementValue)
     {
@@ -28,13 +33,24 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
-    }
 
+    }
+    private void Update()
+    {
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+    private bool IsGrounded()
+    {
+        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, 
+            col.bounds.center.z), col.radius*.9f, groundLayers);
+    }
     private void OnTriggerEnter(Collider other)
     {
         score++;
